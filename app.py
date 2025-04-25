@@ -6,6 +6,8 @@ df = pd.read_csv('cleaned_data.csv')
 
 st.header('Vehicle Analysis')
 filtered_df = df[df['model_year'] >= 1990]
+df[['price', 'days_listed']] = df[['price', 'days_listed']].astype(int)
+filtered_df[['price', 'days_listed']] = filtered_df[['price', 'days_listed']].astype(int)
 if st.checkbox("Include Model Years before 1990"):
     st.dataframe(df)
 else:
